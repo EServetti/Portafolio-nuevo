@@ -102,7 +102,7 @@ const doughnutChartOpt = {
                 <div class="flex-1 min-w-0 h-[400px]">
                     <Bar :options="barCharOpt" :data="barChartData" />
                 </div>
-                <div class="flex-1 min-w-0 h-[400px] flex flex-col gap-2">
+                <div class="flex-1 min-w-0 h-fit flex flex-col gap-2">
                     <div class="flex-1 min-h-0 min-w-0">
                         <Doughnut :data="doughnutChartData" :options="doughnutChartOpt" />
                     </div>
