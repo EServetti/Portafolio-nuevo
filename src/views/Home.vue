@@ -22,7 +22,7 @@ const barChartData = {
 
 const barCharOpt = {
     responsive: true,
-    maintainAspectRatio: false,   
+    maintainAspectRatio: false,
     indexAxis: 'y' as const
 }
 
@@ -56,7 +56,7 @@ const doughnutChartData = {
 
 const doughnutChartOpt = {
     responsive: true,
-    maintainAspectRatio: false,  
+    maintainAspectRatio: false,
     plugins: {
         legend: { position: 'right' as const }
     }
@@ -102,8 +102,15 @@ const doughnutChartOpt = {
                 <div class="flex-1 min-w-0 h-[400px]">
                     <Bar :options="barCharOpt" :data="barChartData" />
                 </div>
-                <div class="flex-1 min-w-0 h-[400px]">
-                    <Doughnut :data="doughnutChartData" :options="doughnutChartOpt" />
+                <div class="flex-1 min-w-0 h-[400px] flex flex-col gap-2">
+                    <div class="flex-1 min-h-0 min-w-0">
+                        <Doughnut :data="doughnutChartData" :options="doughnutChartOpt" />
+                    </div>
+                    <div class="flex gap-4 justify-center shrink-0 text-sm">
+                        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-sky-700 inline-block"></span>Frontend</span>
+                        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-green-700 inline-block"></span>Backend</span>
+                        <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-amber-700 inline-block"></span>Database</span>
+                    </div>
                 </div>
             </div>
 

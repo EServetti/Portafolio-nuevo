@@ -2,7 +2,7 @@
 import { Menu } from '@lucide/vue';
 import { ref } from 'vue';
 
-const expandAside = ref(true);
+const expandAside = ref(false);
 
 // Lista que contiene los nombres y ids de los proyectos
 interface ProyectLabel {
@@ -22,12 +22,11 @@ const proyectsList: ProyectLabel[] = [
 </script>
 
 <template>
-    <aside
-        :class="[
-            'bg-white flex flex-col items-center text-sm pb-2 overflow-hidden transition-all duration-300 ease-in-out shadow-xl',
-            expandAside ? 'w-[20%] min-w-[200px]' : 'w-16'
-        ]">
-        <span class="w-full p-4 flex items-center shrink-0">
+    <aside :class="[
+        'fixed left-0 top-0 md:relative h-screen md:h-auto bg-white flex flex-col items-center text-sm pb-2 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in-out shadow-xl',
+        expandAside ? 'w-[20%] min-w-[200px]' : 'w-16 !bg-transparent !shadow-none md:!shadow-xl  md:bg-white'
+    ]">
+        <span class="w-full pt-6 p-4 flex items-center shrink-0">
             <button class="cursor-pointer" @click="expandAside = !expandAside">
                 <Menu />
             </button>
@@ -47,7 +46,8 @@ const proyectsList: ProyectLabel[] = [
                         <section class="pl-2">
                             <p>Estoy en el desarrollo de software desde el año 2024, tengo experiencia universitaria, en
                                 proyectos propios y trabajando.
-                                <RouterLink :to="{ name: 'Skills' }" class="text-sky-800 hover:opacity-70">Ver más</RouterLink>
+                                <RouterLink :to="{ name: 'Experience' }" class="text-sky-800 hover:opacity-70">Ver más
+                                </RouterLink>
                             </p>
                         </section>
                         <hr class="my-2">
@@ -56,15 +56,18 @@ const proyectsList: ProyectLabel[] = [
                         <section class="pl-2">
                             <p>Cuento con varias habilidades técnicas y blandas desarrolladas a travez de mis años de
                                 experiencia en proyectos personales, la universidad y el trabajo.
-                                <RouterLink :to="{ name: 'Skills' }" class="text-sky-800 hover:opacity-70">Ver más</RouterLink>
+                                <RouterLink :to="{ name: 'Skills' }" class="text-sky-800 hover:opacity-70">Ver más
+                                </RouterLink>
                             </p>
                         </section>
                         <hr class="my-2">
                         <!-- Seccion proyectos -->
                         <li class="bold text-lg">Proyectos</li>
-                        <section class="flex flex-col gap-2 pl-2 text-sky-800 max-h-[150px] overflow-y-auto scroll-smooth">
-                            <RouterLink v-for="project in proyectsList" :to="{ name: 'Product', params: { id: project.id } }"
-                                class="hover:opacity-70">{{ project.label }}</RouterLink>
+                        <section
+                            class="flex flex-col gap-2 pl-2 text-sky-800 max-h-[150px] overflow-y-auto scroll-smooth">
+                            <RouterLink v-for="project in proyectsList"
+                                :to="{ name: 'Product', params: { id: project.id } }" class="hover:opacity-70">{{
+                                project.label }}</RouterLink>
                         </section>
                         <hr class="my-2">
                         <!-- Seccion contacto -->

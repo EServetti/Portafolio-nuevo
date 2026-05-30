@@ -1,6 +1,7 @@
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createMemoryHistory, createRouter, createWebHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
+import Experience from "../views/Experience.vue";
 
 interface Route {
   path: string;
@@ -11,10 +12,10 @@ const routes: Route[] = [
   { path: "/", component: Home, name: "Home" },
   { path: "/project/:id", component: () => "", name: "Product" },
   { path: "/skills", component: () => "", name: "Skills"},
-  { path: "/experience", component: () => "", name: "Experience"}
+  { path: "/experience", component: Experience, name: "Experience"}
 ];
 
 export const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 });
