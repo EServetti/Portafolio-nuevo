@@ -27,16 +27,17 @@ export interface Project {
     title: string;
     description: string;
     screenshots: AppScreenshot[];
-    urls: AppUrl[];
-    tools: Tool[]
+    urls?: AppUrl[];
+    tools: Tool[];
+    lang: string;
 }
 
 const route = useRoute();
 const projectId = computed(() => route.params.id);
 
 const project = computed(() => projectsList.find(p => p.id === projectId.value))
-const projectScreenshots = project?.value?.screenshots.map(ss => ({ type: ss.type, url: formatFilePath(ss.url) }))
-const projectHasLinks = project.value?.urls.length && project.value?.urls.length > 0
+const projectScreenshots = computed(() => project?.value?.screenshots.map(ss => ({ type: ss.type, url: formatFilePath(ss.url) })))
+const projectHasLinks = project.value?.urls && project.value?.urls.length > 0
 
 const getUrlLabel = (url: AppUrl) => {
     if (url.label) return url.label;
@@ -74,8 +75,11 @@ const getButtonIcon = (type: "web" | "app_store" | "play_store" | "git_hub") => 
 <template>
     <div class="w-full flex flex-col p-6 lg:flex-row lg:px-30 gap-5">
         <!-- datos de la app -->
-        <div class="flex-2 flex flex-col justify-start items-start gap-5">
-            <h1 class="font-bold text-lg lg:text-xl">{{ project?.title }}</h1>
+        <div class="flex-2 min-w-0 flex flex-col justify-start items-start gap-5">
+            <span>
+                <h1 class="font-bold text-lg lg:text-xl">{{ project?.title }}</h1>
+                <p class="font-light text-sm text-gray-600">{{ project?.lang }}</p>
+            </span>
             <p class="max-w-[600px]">{{ project?.description }}</p>
             <!-- links -->
             <section v-if="projectHasLinks" class="flex gap-5">
@@ -88,16 +92,19 @@ const getButtonIcon = (type: "web" | "app_store" | "play_store" | "git_hub") => 
             </section>
             <!-- herramientas -->
             <h3 class="font-semibold">Herramientas utilizadas</h3>
-            <section class="flex gap-5 overflow-x-auto w-full">
-                <span :class="['cursor-default font-semibold shrink-0', tool.type === 'Backend' ? 'text-green-800' : tool.type === 'Frontend' ? 'text-blue-800' : 'text-orange-800']" v-for="tool in project?.tools" :key="tool.label">
+            <section class="flex gap-5 overflow-x-auto w-full min-h-fit">
+                <span
+                    :class="['cursor-default font-semibold shrink-0', tool.type === 'Backend' ? 'text-green-800' : tool.type === 'Frontend' ? 'text-blue-800' : 'text-orange-800']"
+                    v-for="tool in project?.tools" :key="tool.label">
                     {{ tool.label }}
                 </span>
             </section>
         </div>
         <!-- carrusel de imagenes -->
-        <div class="flex-1 flex justify-center">
-            <ImageCarousel v-if="projectScreenshots && projectScreenshots.length > 0"
-                :type="projectScreenshots[0].type || 'laptop'" :images="projectScreenshots?.map(ps => ps.url)" />
+        <div v-if="projectScreenshots && projectScreenshots.length > 0"
+            :class="['flex justify-center', projectScreenshots[0].type === 'laptop' ? 'flex-2' : 'flex-1']">
+            <ImageCarousel :type="projectScreenshots[0].type || 'laptop'"
+                :images="projectScreenshots?.map(ps => ps.url)" />
         </div>
     </div>
 </template>
