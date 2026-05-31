@@ -20,3 +20,7 @@ export const calculateTime = (startDate: string) => {
     const months = (today.getFullYear() - date.getFullYear()) * 12 + (today.getMonth() - date.getMonth())
     return +(months / 12).toFixed(1)   
 }
+
+export const formatFilePath = (path: string) => {
+    return new URL(path, import.meta.url).href
+}

@@ -23,7 +23,7 @@ const proyectsList: ProyectLabel[] = [
 
 <template>
     <aside :class="[
-        'fixed left-0 top-0 md:relative h-screen md:h-auto bg-white flex flex-col items-center text-sm pb-2 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in-out shadow-xl',
+        'fixed z-1000 left-0 top-0 md:relative h-screen md:h-auto bg-white flex flex-col items-center text-sm pb-2 overflow-x-hidden overflow-y-auto transition-all duration-300 ease-in-out shadow-xl',
         expandAside ? 'w-[20%] min-w-[200px]' : 'w-16 !bg-transparent !shadow-none md:!shadow-xl  md:bg-white'
     ]">
         <span class="w-full pt-6 p-4 flex items-center shrink-0">

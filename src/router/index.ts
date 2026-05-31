@@ -2,6 +2,7 @@ import { createMemoryHistory, createRouter, createWebHistory } from "vue-router"
 
 import Home from "../views/Home.vue";
 import Experience from "../views/Experience.vue";
+import Project from "../views/Project.vue";
 
 interface Route {
   path: string;
@@ -10,7 +11,7 @@ interface Route {
 }
 const routes: Route[] = [
   { path: "/", component: Home, name: "Home" },
-  { path: "/project/:id", component: () => "", name: "Product" },
+  { path: "/project/:id", component: Project, name: "Product" },
   { path: "/skills", component: () => "", name: "Skills"},
   { path: "/experience", component: Experience, name: "Experience"}
 ];

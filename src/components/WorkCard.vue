@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Calendar1, CalendarClock, Loader, LocationEdit } from '@lucide/vue';
 import { ref } from 'vue';
+import { formatFilePath } from '../utils/helpers';
 
 export interface WorkCard {
     logoUrl: string;
@@ -16,8 +17,8 @@ export interface WorkCard {
 
 const params = defineProps<WorkCard>()
 
-const logo = new URL(params.logoUrl, import.meta.url).href
-const diploma = params.diplomaUrl ? new URL(params.diplomaUrl, import.meta.url).href : ''
+const logo = formatFilePath(params.logoUrl)
+const diploma = params.diplomaUrl ? formatFilePath(params.diplomaUrl) : ''
 
 const showDiplomaModal = ref(false)
 
