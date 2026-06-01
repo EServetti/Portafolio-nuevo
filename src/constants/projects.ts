@@ -8,10 +8,10 @@ export const projectsList: Project[] = [
     description:
       "¿Estás cansado de pasar tiempo buscando un libro en lugar de leerlo? ¿Quieres una app que entienda tu estado de ánimo y tus gustos y te recomiende la lectura perfecta? ¡Si es así, no busques más! Tu próxima gran lectura está a solo una descripción de distancia con Find Your Books. Simplemente dile a la app qué tipo de historia quieres y la IA integrada encontrará en segundos justo lo que se ajusta a tu estado de ánimo, gustos y estilo de lectura. ¡Olvídate de las listas interminables y disfruta de una forma más inteligente de registrar, calificar y compartir los libros que te encantan con tus amigos de confianza!",
     tools: [
-      { label: "Expo", countInStats: true, type: "Frontend" },
-      { label: "Supabase", countInStats: true, type: "Database" },
-      { label: "Open AI API", countInStats: false, type: "Backend" },
-      { label: "Google Books API", countInStats: false, type: "Backend" },
+      { label: "Expo", countInStats: true, type: "frontend" },
+      { label: "Supabase", countInStats: true, type: "database" },
+      { label: "Open AI API", countInStats: false, type: "backend" },
+      { label: "Google Books API", countInStats: false, type: "backend" },
     ],
     urls: [
       {
@@ -45,10 +45,10 @@ export const projectsList: Project[] = [
     lang: "Typescript",
     description: "GatherWell es una plataforma para crear y organizar fiestas, invitar a tus amigos y votar sobre la bebida, comida, temas de conversación y mucho más. Organiza reuniones juto a tus amigos, crea playlists de Spotify para tus fiestas y agregalas a tu calendario.",
     tools: [
-      { label: "React", countInStats: true, type: "Frontend"},
-      { label: "n8n", countInStats: true, type: "Backend"},
-      { label: "Mongo DB", countInStats: true, type: "Database"},
-      { label: "CSS", countInStats: true, type: "Frontend"}
+      { label: "React", countInStats: true, type: "frontend"},
+      { label: "n8n", countInStats: true, type: "backend"},
+      { label: "Mongo DB", countInStats: true, type: "database"},
+      { label: "CSS", countInStats: true, type: "frontend"}
     ],
     screenshots: [
       {type: "laptop", url: "../assets/screenshots/gw/home.jpg"},
@@ -67,10 +67,10 @@ export const projectsList: Project[] = [
     lang: "Typescript",
     description: "¿No sabes qué cocinar con lo que tienes en casa? ¿Quieres organizar tus recetas favoritas en un solo lugar? SmartChef es la app perfecta para ti. Ingresa los ingredientes que tienes disponibles y podras obtener recetas personalizadas, guarda las recetas en listas y compartilas todo en un lugar.",
     tools: [
-      { label: "Expo", countInStats: true, type: "Frontend"},
-      { label: "Mongo DB", countInStats: true, type: "Database"},
-      { label: "Open AI API", countInStats: false, type: "Backend"},
-      { label: "Cloudinary", countInStats: false, type: "Database"}
+      { label: "Expo", countInStats: true, type: "frontend"},
+      { label: "Mongo DB", countInStats: true, type: "database"},
+      { label: "Open AI API", countInStats: false, type: "backend"},
+      { label: "Cloudinary", countInStats: false, type: "database"}
     ],
     screenshots: [
       {type: "phone", url: "../assets/screenshots/sc/home.jpg"},
@@ -87,7 +87,7 @@ export const projectsList: Project[] = [
       {
         label: "React Native",
         countInStats: true,
-        type: "Frontend"
+        type: "frontend"
       }
     ],
     screenshots: [
@@ -103,11 +103,11 @@ export const projectsList: Project[] = [
     lang: "Typescript",
     description: "Mi primer proyecto con TypeScript, tanto en front-end como en back-end. AITrainer es un entrenador virtual que te ofrece un plan de entrenamiento personalizado basado en tus datos personales con la opción de guardar cada plan. Ofrece una interfaz parecida a ChatGPT pero para tus planes de gim.",
     tools: [
-      { label: "React", countInStats: true, type: "Frontend"},
-      { label: "Express", countInStats: true, type: "Backend"},
-      { label: "Mongo DB", countInStats: true, type: "Database"},
-      { label: "Open AI API", countInStats: false, type: "Backend"},
-      { label: "CSS", countInStats: true, type: "Frontend"}
+      { label: "React", countInStats: true, type: "frontend"},
+      { label: "Express", countInStats: true, type: "backend"},
+      { label: "Mongo DB", countInStats: true, type: "database"},
+      { label: "Open AI API", countInStats: false, type: "backend"},
+      { label: "CSS", countInStats: true, type: "frontend"}
     ],
     screenshots: [
       {type: "laptop", url: "../assets/screenshots/ait/home_1.jpg"},
@@ -124,11 +124,12 @@ export const projectsList: Project[] = [
     lang: "Javascript",
     description: "Mi segundo proyecto: ¿Alguna vez has querido leer sobre algo pero no sabías qué libro se ajustaba a esas características? Esto es Find your books, una página donde introduces la descripción de un libro y te da una lista de libros que coinciden con ella.",
     tools: [
-      {label: "React", countInStats: true, type: "Frontend"},
-      {label: "Mongo DB", countInStats: true, type: "Database"},
-      {label: "Open AI API", countInStats: false, type: "Backend"},
-      {label: "Google Books API", countInStats: false, type: "Backend"},
-      {label: "Express", countInStats: true, type: "Backend"}
+      {label: "React", countInStats: true, type: "frontend"},
+      {label: "Mongo DB", countInStats: true, type: "database"},
+      {label: "Open AI API", countInStats: false, type: "backend"},
+      {label: "Google Books API", countInStats: false, type: "backend"},
+      {label: "Express", countInStats: true, type: "backend"},
+      {label: "CSS", countInStats: true, type: "backend"}
     ],
     screenshots: [
       {type: "laptop", url: "../assets/screenshots/fyb/home.jpg"},
@@ -144,13 +145,13 @@ export const projectsList: Project[] = [
     id: "efyh",
     title: "Everything for your home",
     lang: "Javascript",
-    description: "Este es mi primer proyecto, creado durante el curso de Coderhouse sobre Desarrollo Backend. Se trata de un e-commerce de muebles y otras cosas para el hogar, cuenta con un sistema de autenticación, carrito y ventas.",
+    description: "Este es mi primer proyecto, creado durante el curso de Coderhouse sobre desarrollo backend. Se trata de un e-commerce de muebles y otras cosas para el hogar, cuenta con un sistema de autenticación, carrito y ventas.",
     tools: [
-      {label: "React", countInStats: true, type: "Frontend"},
-      {label: "Express", countInStats: true, type: "Backend"},
-      {label: "CSS", countInStats: true, type: "Backend"},
-      {label: "Stripe", countInStats: false, type: "Backend"},
-      {label: "Mongo DB", countInStats: true, type: "Database"}
+      {label: "React", countInStats: true, type: "frontend"},
+      {label: "Express", countInStats: true, type: "backend"},
+      {label: "CSS", countInStats: true, type: "backend"},
+      {label: "Stripe", countInStats: false, type: "backend"},
+      {label: "Mongo DB", countInStats: true, type: "database"}
     ],
     screenshots: [
       {type: "laptop", url: "../assets/screenshots/efyh/home.jpg"},

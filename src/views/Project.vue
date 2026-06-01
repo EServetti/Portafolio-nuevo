@@ -19,7 +19,7 @@ interface AppScreenshot {
 interface Tool {
     label: string;
     countInStats: boolean;
-    type?: "Frontend" | "Backend" | "Database"
+    type?: "frontend" | "backend" | "database"
 }
 
 export interface Project {
@@ -94,7 +94,7 @@ const getButtonIcon = (type: "web" | "app_store" | "play_store" | "git_hub") => 
             <h3 class="font-semibold">Herramientas utilizadas</h3>
             <section class="flex gap-5 overflow-x-auto w-full min-h-fit">
                 <span
-                    :class="['cursor-default font-semibold shrink-0', tool.type === 'Backend' ? 'text-green-800' : tool.type === 'Frontend' ? 'text-blue-800' : 'text-orange-800']"
+                    :class="['cursor-default font-semibold shrink-0', tool.type === 'backend' ? 'text-green-800' : tool.type === 'frontend' ? 'text-blue-800' : 'text-orange-800']"
                     v-for="tool in project?.tools" :key="tool.label">
                     {{ tool.label }}
                 </span>
