@@ -21,6 +21,13 @@ export const calculateTime = (startDate: string) => {
     return +(months / 12).toFixed(1)   
 }
 
+const assetMap = import.meta.glob('/src/assets/**/*', {
+    eager: true,
+    import: 'default',
+    query: '?url'
+}) as Record<string, string>
+
 export const formatFilePath = (path: string) => {
-    return new URL(path, import.meta.url).href
+    const normalized = path.replace(/^\.\.\//, '/src/')
+    return assetMap[normalized] ?? path
 }
